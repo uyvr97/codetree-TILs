@@ -16,7 +16,7 @@ void input(){
         }
     }
 
-    for(int i = 1; i <= n; i++){
+    for(int i = 1; i <= m; i++){
         int r, c;
         cin >> r >> c;
         cnt[r][c] = 1; // r행 c열에 구슬이 1개 존재
@@ -91,7 +91,6 @@ void process(){
         MoveAll();
         // 2. 충돌된 구슬들 삭제하기
         RemoveDuplicationMarbles();
-
     }
 
     // 남아있는 구슬 개수 계산
