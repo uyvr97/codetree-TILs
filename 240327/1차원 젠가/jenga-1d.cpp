@@ -1,4 +1,5 @@
 #include <iostream>
+#include<cstring>
 using namespace std;
 
 int arr[101][101];
@@ -6,21 +7,22 @@ int n, cnt;
 int s[2], e[2];
 
 
-void out(int s, int e, int idx){
+void out(int s, int e){
     for(int i = s; i <= e; i++){
-        arr[idx][i] = 0;
-        cnt--;
+        arr[0][i] = 0;
+        cnt++;
     }
 }
 
-void rel(int idx){
+void rel(){
     int tmp = n;
     for(int i = n; i > 0; i--){
-        if(arr[idx][i] != 0){
-            arr[1-idx][tmp] = arr[idx][i];
+        if(arr[0][i] != 0){
+            arr[1][tmp] = arr[0][i];
             tmp--;
         }
     }
+    for(int i = 1; i <= n; i++) arr[0][i] = arr[1][i];
 }
 
 int main() {
@@ -31,15 +33,15 @@ int main() {
         cin >> s[i] >> e[i];
     }
 
-    cnt = n;
     for(int i = 0 ;i < 2; i++){
-        out(s[i],e[i],i);
-        rel(i);
+        out(cnt + s[i], cnt + e[i]);
+        memset(arr[1], sizeof(arr[1]), 0);
+        rel();
     }        
     
-    cout << cnt << "\n";
-    if(cnt != 0){
-        for(int i = n - cnt + 1; i <= n; i++)cout << arr[1][i]<<"\n";
+    cout << n - cnt << "\n";
+    if(n - cnt != 0){
+        for(int i = cnt + 1; i <= n; i++)cout << arr[1][i]<<"\n";
     }
     
     return 0;
