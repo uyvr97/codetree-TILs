@@ -18,7 +18,7 @@ void Choose(int cur_num){
     }
 
     for(int i = 1; i <= k; i++){
-        if(cur_num >= 3 && v[cur_num - 1] == i && v[cur_num - 2] == i)
+        if(cur_num >= 2 && v[cur_num - 1] == i && v[cur_num - 2] == i)
             continue;
         v.push_back(i);
         Choose(cur_num + 1);
