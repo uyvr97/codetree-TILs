@@ -20,7 +20,7 @@ void BFS(){
         for(int i = 0; i < 4; i++){
             int nx = x + dx[i], ny = y + dy[i];
             if(!InRange(nx, ny))continue;
-            if(arr[nx][ny] == 1 && vit[nx][ny] == false){
+            if(arr[nx][ny] == 1 && visit[nx][ny] == false){
                 visit[nx][ny] = true;
                 dist[nx][ny] = dist[x][y] + 1;
                 q.push({nx, ny});
