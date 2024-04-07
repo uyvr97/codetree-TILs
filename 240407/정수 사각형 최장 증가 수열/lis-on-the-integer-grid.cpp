@@ -41,8 +41,10 @@ int main() {
     int rel = 0;
    for(int i = 1; i <= n; i++){
         for(int j= 1; j <=n; j++){
-            count(i,j);
-            rel = max(rel, dp[i][j]);
+            if(dp[i][j] == 0){
+                count(i,j);
+                rel = max(rel, dp[i][j]);
+            }
         }
    }
 
