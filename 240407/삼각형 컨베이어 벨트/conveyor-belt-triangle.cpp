@@ -18,7 +18,7 @@ int main() {
     for(int i = 0 ; i < t; i++) conv();
     for(int i = 0 ; i < n*3; i++){
         cout << arr[i] <<" ";
-        if(i % n == 2)cout << "\n";
+        if(i % n == n-1)cout << "\n";
     }
     return 0;
 }
